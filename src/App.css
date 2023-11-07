@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+	max-width: 100%;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	height: auto;
+}
+
+.input {
+	outline: none;
+	background-color: transparent;
+	font-size: small;
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+.dropdown{
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+	border: none;
+	outline: none !important;
+	font-size: small;
+}
+.dropdown:focus{
+	border: none;
+	outline: none !important;
+}
+.opt{
+	width: auto;
+	border: none;
+	font-size: small;
+}
+.c-article{
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
+}
