@@ -6,6 +6,7 @@ import { ArrowLeftIcon } from '@radix-ui/react-icons'
 
 
 const CountryDetails = () => {
+     scrollTo(0,0)
      const params = useParams()
      // console.log(params.id)
      const [Countries, setCountries] = useState([])
@@ -26,7 +27,7 @@ const CountryDetails = () => {
           fetchData();
      }, []);
      return (
-          <div>
+          <div className='w-[100%]'>
 
 
                <div className='c-article h-[6rem]'>

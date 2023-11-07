@@ -15,7 +15,7 @@ function App() {
   const ThemeStyles = {
     color: DarkTheme ? "white" : 'black',
     backgroundColor: DarkTheme ? "#25313c" : "white",
-    height: "auto"
+    height: "100%"
   }
   return (
     <ThemeContext.Provider value={{ DarkTheme, setDarkTheme }}>
