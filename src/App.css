@@ -7,7 +7,6 @@
 	margin: 0px;
 	padding: 0px;
 	text-align: center;
-	height: 100% !important;
 }
 
 .input {
@@ -16,21 +15,33 @@
 	font-size: small;
 	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
-.dropdown{
+.dropdown {
 	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 	border: none;
 	outline: none !important;
 	font-size: small;
 }
-.dropdown:focus{
+.dropdown:focus {
 	border: none;
 	outline: none !important;
 }
-.opt{
+.opt {
 	width: auto;
 	border: none;
 	font-size: small;
 }
-.c-article{
+.c-article {
 	box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
 }
+
+.cc-article {
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
+	transition: 0.1s ease-in-out;
+}
+
+.cc-article:hover {
+	scale: 1.02;
+}
+
+/* .c-article img{
+} */

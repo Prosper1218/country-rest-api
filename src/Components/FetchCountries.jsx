@@ -6,6 +6,7 @@ import { ThemeContext } from '../App';
 import { Link } from 'react-router-dom';
 import FilterByRegion from './FilterByRegion';
 import FilterBySearch from './FilterBySearch';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 
 const FetchCountries = () => {
@@ -61,7 +62,7 @@ const FetchCountries = () => {
 
 
      return (
-          <div>
+          <div className='h-full'>
 
 
 
@@ -92,9 +93,9 @@ const FetchCountries = () => {
                     {
                          Countries.map((country, index) => {
                               return (
-                                   <article key={index} className='c-article rounded-md pb-6' style={{ backgroundColor: DarkTheme ? "#2b3945" : "white" }}>
-                                        <Link to={`/CountryDetails/${country.name.common}`}>
-                                             <img src={country.flags.png} alt={country.name.common} loading='lazy' className='w-full h-[12rem] rounded-t-md' />
+                                   <article key={index} className='cc-article rounded-md pb-6' style={{ backgroundColor: DarkTheme ? "#2b3945" : "white" }}>
+                                        <Link to={`/CountryDetails/${country.name.common}`} >
+                                             <LazyLoadImage src={country.flags.png} alt={country.name.common} loading='lazy' className='w-full h-[12rem] rounded-t-md' />
                                              <p className='text-left pl-4 pt-4 font-bold'>{country.name.common}</p>
 
 
@@ -114,28 +115,3 @@ const FetchCountries = () => {
 // 
 
 export default FetchCountries
-// const FilterByRegion = ({filterid,setCountries,countries})=>{
-//      if (filterid === filter[0]) {
-//           setCountries(countries)
-//      }
-//      if (filterid === filter[1]) {
-//           setCountries(countries.filter((countri)=>countri.region.toLowerCase() === filter[1].toLowerCase()))
-//      }
-//      if (filterid === filter[2]) {
-//           setCountries(countries.filter((countri)=>countri.region.toLowerCase() === filter[2].toLowerCase()))
-//      }
-//      // if (filterid === filter[3]) {
-//      //      setCountries(countries.filter((countri)=>countri.region.toLowerCase() === filter[3].toLowerCase()))
-//      // }
-//      // if (filterid === filter[4]) {
-//      //      setCountries(countries.filter((countri)=>countri.region.toLowerCase() === filter[4].toLowerCase()))
-//      // }
-//      // if (filterid === filter[5]) {
-//      //      setCountries(countries.filter((countri)=>countri.region.toLowerCase() === filter[5].toLowerCase()))
-//      // }
-
-//      return (
-//           <>
-//           </>
-//      )
-// }

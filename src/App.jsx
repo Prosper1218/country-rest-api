@@ -15,11 +15,11 @@ function App() {
   const ThemeStyles = {
     color: DarkTheme ? "white" : 'black',
     backgroundColor: DarkTheme ? "#25313c" : "white",
-    height: "100%"
+    // height: ""
   }
   return (
     <ThemeContext.Provider value={{ DarkTheme, setDarkTheme }}>
-      <div style={ThemeStyles}>
+      <div style={ThemeStyles} className='h-full'>
         <Nav />
         <FetchCountries />
       </div>
