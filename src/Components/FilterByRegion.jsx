@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { filter } from '../Data'
 import { useRef } from 'react'
 import { useContext } from 'react'
-import { ThemeContext } from '../App'
 
 
 const FilterByRegion = ({ Countrys, setCountrys }) => {
-  const { DarkTheme } = useContext(ThemeContext)
   const regioninput = useRef()
   const [FilteredCountry, setFilteredCountry] = useState([])
 
@@ -73,3 +71,6 @@ export default FilterByRegion
 //     console.log(filteredD)
 //   }
 // }
+
+
+

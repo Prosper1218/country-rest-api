@@ -1,26 +1,30 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
-import { CaretDownIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons';
-import { Button, DropdownMenu, Theme } from '@radix-ui/themes';
 import { filter } from '../Data';
-import { ThemeContext } from '../App';
 import { Link } from 'react-router-dom';
-import FilterByRegion from './FilterByRegion';
 import FilterBySearch from './FilterBySearch';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { Loading } from 'react-loading-dot'
+import { ThemeCon } from '../Pages/LayOut';
+import { motion } from 'framer-motion';
+
 
 
 const FetchCountries = () => {
-     const { DarkTheme } = useContext(ThemeContext)
      const [Countries, setCountries] = useState([]);
      const regioninput = useRef()
      const [FilteredCountry, setFilteredCountry] = useState([])
+     const [isLoading, setisLoading] = useState(true)
+     const { DarkTheme } = useContext(ThemeCon)
+
 
      useEffect(() => {
+
           const fetchData = async () => {
                try {
                     const response = await fetch('https://restcountries.com/v3.1/all');
                     const data = await response.json();
                     setCountries(data);
+                    setisLoading(false)
                } catch (error) {
                     <p>error fetching data</p>
                }
@@ -60,9 +64,13 @@ const FetchCountries = () => {
           }
      }
 
+     if (isLoading) {
+          return <Loading background={DarkTheme ? "white" : "#324454"} />
+
+     }
 
      return (
-          <div className='h-full'>
+          <div style={{ minHeight: "100%" }}>
 
 
 
@@ -75,7 +83,7 @@ const FetchCountries = () => {
                     <div>
 
                          <div>
-                              <select name="Select" className="dropdown pl-3 py-3 rounded-md " ref={regioninput} onChange={handlefilter} style={{ backgroundColor: DarkTheme ? " #2b3945 " : "white" }}>
+                              <select name="Select" className="dropdown pl-3 py-3 rounded-md text-xs" ref={regioninput} onChange={handlefilter} style={{ backgroundColor: DarkTheme ? "#324454" : 'white' }}>
 
                                    {
                                         filter.map((by) => {
@@ -89,13 +97,18 @@ const FetchCountries = () => {
                     </div>
                </div>
 
-               <section className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 px-4 sm:px-8 md:px-24 pt-8 pb-4'>
+               <motion.section
+                    initial={{ y: 70, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.7, }}
+                    viewport={{ once: true }}
+                    className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 px-4 sm:px-8 md:px-24 pt-10 mt-4 pb-4'>
                     {
                          Countries.map((country, index) => {
                               return (
-                                   <article key={index} className='cc-article rounded-md pb-6' style={{ backgroundColor: DarkTheme ? "#2b3945" : "white" }}>
+                                   <article key={index} className='cc-article rounded-md pb-6' >
                                         <Link to={`/CountryDetails/${country.name.common}`} >
-                                             <LazyLoadImage src={country.flags.png} alt={country.name.common} loading='lazy' className='w-full h-[12rem] rounded-t-md' />
+                                             <LazyLoadImage src={country.flags.png} alt={country.name.common} loading='lazy' className='w-full h-[12.5rem] rounded-t-md' />
                                              <p className='text-left pl-4 pt-4 font-bold'>{country.name.common}</p>
 
 
@@ -108,7 +121,7 @@ const FetchCountries = () => {
                               )
                          })
                     }
-               </section>
+               </motion.section>
           </div >
      )
 }

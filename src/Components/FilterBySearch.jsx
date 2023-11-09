@@ -1,17 +1,16 @@
-import React, { useRef, useEffect } from 'react'
-import { useContext } from 'react'
-import { ThemeContext } from '../App'
+import React, { useRef, useEffect, useContext } from 'react'
 import { useState } from 'react'
 import { MagnifyingGlassIcon } from '@radix-ui/react-icons'
+// import ThemeC from './ThemeC'
+
+
 
 const FilterBySearch = ({ Countries, setCountries, }) => {
-     const { DarkTheme } = useContext(ThemeContext)
      const [Value, setValue] = useState("")
      const [isError, setisError] = useState(false)
 
-
      useEffect(() => {
-
+          // setValue('')
           if (Value.trim() === '') {
                setisError(false)
                return
@@ -40,8 +39,8 @@ const FilterBySearch = ({ Countries, setCountries, }) => {
 
      return (
           <div>
-               <form action="" className='relative'>
-                    <input type="text" name="Search" id="search" className='input w-full sm:w-80 h-[3rem] rounded-md relative pl-4 ' placeholder='Search for a country' value={Value} onChange={(e) => setValue(e.target.value)} style={{ backgroundColor: DarkTheme ? " #2b3945 " : "white" }} />
+               <form action="" className='relative' >
+                    <input type="text" name="Search" id="search" className='input w-full sm:w-80 h-[3rem] rounded-md relative pl-4 ' placeholder='Search for a country' value={Value} onChange={(e) => setValue(e.target.value)} />
                     <button className='absolute right-[0] top-0 bottom-0 w-12 items-center justify-center flex'><MagnifyingGlassIcon className=' scale-125' /></button>
                </form>
                <p className='font-serif text-sm pt-1'> {isError ? "No Country's Name Directly Matches Your Search😪" : null}</p>
@@ -51,3 +50,7 @@ const FilterBySearch = ({ Countries, setCountries, }) => {
 
 
 export default FilterBySearch
+
+
+
+

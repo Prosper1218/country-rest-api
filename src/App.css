@@ -7,6 +7,9 @@
 	margin: 0px;
 	padding: 0px;
 	text-align: center;
+	height: 100%;
+	position: relative;
+	min-height: 100%;
 }
 
 .input {
@@ -19,7 +22,8 @@
 	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 	border: none;
 	outline: none !important;
-	font-size: small;
+	/* font-size: small; */
+	/* background-color: black; */
 }
 .dropdown:focus {
 	border: none;
@@ -43,5 +47,13 @@
 	scale: 1.02;
 }
 
-/* .c-article img{
-} */
+.nav {
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+.btn {
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+#footer {
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
+}
