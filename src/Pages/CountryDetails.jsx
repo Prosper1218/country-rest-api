@@ -45,7 +45,7 @@ const CountryDetails = () => {
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.7, }}
                     viewport={{ once: true }}
-                    className='c-article w-20 h-10 sm:ml-16 mt-12 mb-4 items-center flex ml-4 flex justify-center pl-8 pr-4 rounded-md'
+                    className='c-article w-20 h-10 sm:ml-16 mt-12 mb-4 items-center flex ml-4 justify-center pl-8 pr-4 rounded-md'
                     whileHover={{ scale: 1.2 }}
                >
 
@@ -91,6 +91,7 @@ const CountryDetails = () => {
                               )
                          })
                     }
+                   
 
                </motion.div>
 
